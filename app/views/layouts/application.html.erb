@@ -6,9 +6,43 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("Pokemon", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("NewGame", '#') %>
+        </li>
+        <li>
+          <%= link_to("Continue", '#') %>
+        </li>
+        <li>
+          <%= link_to("Record", '#') %>
+        </li>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+    <footer>
+      <ul>
+        <li>
+          <%= link_to("Created by Tomonori Sasaki", 'https://www.facebook.com/profile.php?id=100005307370876') %>
+        </li>
+      </ul>
+    </footer>
+
   </body>
 </html>
